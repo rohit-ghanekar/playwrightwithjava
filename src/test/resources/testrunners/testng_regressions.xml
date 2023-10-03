@@ -16,12 +16,12 @@
 			<class name="com.expleo.playwrightdemoapp.tests.LoginPageTest" />
 		</classes>
 	</test>
-<!--	<test name="Advance Search Tests_firefox">-->
-<!--		<parameter name="browser" value="chromium" />-->
-<!--		<classes>-->
-<!--			<class name="com.expleo.playwrightdemoapp.tests.AdvanceSearchTest" />-->
-<!--		</classes>-->
-<!--	</test>-->
+	<test name="Advance Search Tests_firefox">
+		<parameter name="browser" value="chromium" />
+		<classes>
+			<class name="com.expleo.playwrightdemoapp.tests.AdvanceSearchTest" />
+		</classes>
+	</test>
 
 <!--	<test name="Folders Page Test_chrome">-->
 <!--		<parameter name="browser" value="chromium" />-->

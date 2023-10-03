@@ -1,0 +1,9 @@
+{
+  "username": "Engineer_1",
+  "password": "Engineer_1",
+  "searchString": "test",
+  "folderName" : "AWTestFolder",
+  "itemName" : "AWTestItem",
+  "searchItemID" : "000168",
+  "Description" : "This is created during test execution"
+}

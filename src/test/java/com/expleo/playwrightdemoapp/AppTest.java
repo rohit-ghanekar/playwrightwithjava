@@ -5,6 +5,8 @@ import java.util.Properties;
 import com.expleo.playwrightdemoapp.pages.AdvanceSearchPage;
 import com.expleo.playwrightdemoapp.pages.FoldersPage;
 import com.expleo.playwrightdemoapp.pages.ItemsPage;
+import com.expleo.playwrightdemoapp.utils.JsonDataProvider;
+import org.json.simple.JSONObject;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -25,7 +27,8 @@ public class AppTest {
     protected AdvanceSearchPage advanceSearchPage;
     protected FoldersPage foldersPage;
     protected ItemsPage itemsPage;
-
+    public static JsonDataProvider dp = new JsonDataProvider();
+    protected JSONObject jsData;
     @Parameters({"browser"})
     @BeforeTest
     public void setup(String browserName) {
@@ -42,6 +45,7 @@ public class AppTest {
         advanceSearchPage = new AdvanceSearchPage(page);
         foldersPage = new FoldersPage(page);
         itemsPage = new ItemsPage(page);
+        jsData = dp.getJsonData();
     }
 
     @AfterTest

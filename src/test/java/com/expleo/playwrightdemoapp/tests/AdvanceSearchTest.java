@@ -1,6 +1,7 @@
 package com.expleo.playwrightdemoapp.tests;
 
 import com.expleo.playwrightdemoapp.AppTest;
+import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -10,22 +11,22 @@ public class AdvanceSearchTest extends AppTest {
 
     @BeforeTest
     public void Login() {
-        Assert.assertTrue(loginPage.doLogin(prop.getProperty("username").trim(), prop.getProperty("password").trim()));
+        Assert.assertTrue(loginPage.doLogin((String)jsData.get("username"), (String)jsData.get("password")));
     }
 
     @Test(priority = 1)
     public void AW_FolderSearch(){
-        Assert.assertTrue(advanceSearchPage.folderSearch(prop.getProperty("searchString").trim()));
+        Assert.assertTrue(advanceSearchPage.folderSearch((String)jsData.get("searchString")));
     }
 
     @Test(priority = 2)
     public void AW_ItemSearch(){
-        Assert.assertTrue(advanceSearchPage.itemSearch(prop.getProperty("itemName").trim()));
+        Assert.assertTrue(advanceSearchPage.itemSearch((String)jsData.get("itemName")));
     }
 
     @Test(priority = 3)
     public void AW_DatasetSearch(){
-        Assert.assertTrue(advanceSearchPage.datasetSearch(prop.getProperty("searchString").trim()));
+        Assert.assertTrue(advanceSearchPage.datasetSearch((String)jsData.get("searchString")));
     }
 
     @AfterTest

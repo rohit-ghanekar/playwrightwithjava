@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.Properties;
 
+import com.expleo.playwrightdemoapp.utils.JsonDataProvider;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
@@ -34,6 +35,7 @@ public class PlaywrightFactory {
     public static Page getPage() {
         return tlPage.get();
     }
+
     public Page initBrowser(Properties prop) {
 
         String browserName = prop.getProperty("browser").trim();
