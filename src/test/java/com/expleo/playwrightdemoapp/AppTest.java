@@ -50,7 +50,7 @@ public class AppTest {
 
     @AfterTest
     public void tearDown() {
-        page.context().close();
+        page.context().close(); //Context should be closed for processing video recording
         page.context().browser().close();
     }
 }

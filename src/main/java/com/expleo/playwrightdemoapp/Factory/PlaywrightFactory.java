@@ -70,7 +70,7 @@ public class PlaywrightFactory {
 
         tlBrowserContext.set(getBrowser().newContext(new Browser.NewContextOptions()
                 .setRecordVideoDir(Paths.get("myrecordings/"))));
-        tlBrowserContext.set(getBrowser().newContext());
+        //tlBrowserContext.set(getBrowser().newContext());
         tlPage.set(getBrowserContext().newPage());
         getPage().navigate(prop.getProperty("url").trim());
         getPage().setViewportSize(1920,931);

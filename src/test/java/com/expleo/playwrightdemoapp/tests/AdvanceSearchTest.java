@@ -14,17 +14,17 @@ public class AdvanceSearchTest extends AppTest {
         Assert.assertTrue(loginPage.doLogin((String)jsData.get("username"), (String)jsData.get("password")));
     }
 
-    @Test(priority = 1)
+    @Test
     public void AW_FolderSearch(){
         Assert.assertTrue(advanceSearchPage.folderSearch((String)jsData.get("searchString")));
     }
 
-    @Test(priority = 2)
+    @Test
     public void AW_ItemSearch(){
         Assert.assertTrue(advanceSearchPage.itemSearch((String)jsData.get("itemName")));
     }
 
-    @Test(priority = 3)
+    @Test
     public void AW_DatasetSearch(){
         Assert.assertTrue(advanceSearchPage.datasetSearch((String)jsData.get("searchString")));
     }

@@ -2,8 +2,13 @@ package com.expleo.playwrightdemoapp.pages;
 
 import java.nio.file.Paths;
 
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+
+import static com.aventstack.extentreports.Status.INFO;
+import static com.expleo.playwrightdemoapp.Factory.PlaywrightFactory.takeScreenshot;
+import static com.expleo.playwrightdemoapp.listeners.ExtentReportListener.test;
 
 public class LoginPage {
 
@@ -20,11 +25,16 @@ public class LoginPage {
     }
     public boolean doLoginAndLogout(String user, String pwd){
         page.fill(username, user);
+        test.get().log(INFO,"Enter "+user+" in username field", MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot(),"username").build());
         page.fill(password, pwd);
+        test.get().log(INFO,"Enter password in password field", MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot(),"password").build());
         page.click(signInButton);
+        test.get().log(INFO,"Click on SignIn button", MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot(),"Signinbutton").build());
         page.waitForSelector(folderTile).isVisible();
         page.locator(profileAvatarImage).click();
+        test.get().log(INFO,"Click on Profile", MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot(),"profile").build());
         page.locator(signOutButton).click();
+        test.get().log(INFO,"Click on Sing out option", MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshot(),"signout").build());
         return page.waitForSelector(username).isVisible();
     }
 
