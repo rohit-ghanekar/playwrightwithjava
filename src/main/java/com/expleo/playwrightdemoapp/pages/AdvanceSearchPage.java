@@ -22,6 +22,10 @@ public class AdvanceSearchPage {
 
     private String homeLeftMenuButton = "xpath=//div[@class='aw-commandBars aw-commandBar-vertical']//button[@aria-label='Home']";
 
+    private String documentType = "xpath=//div[@aria-label='Type']/preceding-sibling::input";
+    private String searchType = "input[name=searchBoxLOVFilterStr]";
+    private String selectFolderType = "xpath=//ul[@aria-label='Type']//li//div[@title='Folder']";
+
     public AdvanceSearchPage(Page page){
         this.page = page;
     }
@@ -38,9 +42,13 @@ public class AdvanceSearchPage {
         test.get().log(INFO,"Click on Clear All button");
         page.locator(advanceSearchQueryName).fill(name);
         test.get().log(INFO,"Enter "+name+" in Advance Search query Name field");
+        page.locator(documentType).click();
+        test.get().log(INFO,"Select Type option");
+        page.waitForSelector(searchType).fill("Folder");
+        page.waitForSelector(selectFolderType).click();
         page.locator("xpath=//button[@class='sw-button ']//div[contains(text(),'Search')]").click();
         test.get().log(INFO,"Click on Search button");
-        return page.waitForSelector("span[title="+name+"]").isVisible();
+        return page.waitForSelector("//span[@title='"+name+"']").isVisible();
     }
 
     public boolean itemSearch(String name){
