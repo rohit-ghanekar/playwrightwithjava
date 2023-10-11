@@ -21,13 +21,13 @@ public class FoldersPageTest extends AppTest {
     @Test(priority = 1)
     public void AW_ItemCreation() {
         Assert.assertTrue(advanceSearchPage.folderSearch((String)jsData.get("searchString")));
-        Assert.assertTrue(foldersPage.itemCreation((String)jsData.get("itemName"), (String)jsData.get("Description")));
+        Assert.assertTrue(foldersPage.itemCreation((String)jsData.get("itemName")));
     }
 
     @Test(priority = 2)
     public void AW_ItemPinToHome() {
         Assert.assertTrue(advanceSearchPage.folderSearch((String)jsData.get("searchString")));
-        Assert.assertTrue(foldersPage.itemCreation((String)jsData.get("itemName"), (String)jsData.get("Description")));
+        Assert.assertTrue(foldersPage.itemCreation((String)jsData.get("itemName")));
         Assert.assertTrue(foldersPage.pinToHome());
     }
 

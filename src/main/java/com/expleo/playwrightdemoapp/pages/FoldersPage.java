@@ -58,24 +58,24 @@ public class FoldersPage {
         Date date = new java.util.Date();
         String d = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
         folderName = fname+d;
-        page.locator(newFolderNameTextfield).fill(folderName);
+        page.waitForSelector(newFolderNameTextfield).fill(folderName);
         page.locator(newFolderDescriptionTextarea).fill(desc);
         page.locator(submenuAddButton).click();
         return page.waitForSelector("xpath=//div[@class='aw-xrt-summaryXrt']//span[contains(text(),'"+folderName+"')]").isVisible();
     }
 
-    public boolean itemCreation(String iname,String desc){
+    public boolean itemCreation(String iName){
         page.locator(openPanelButton).click();
         page.locator(openMenuButton).click();
         page.locator(createNewPanelButton).click();
         page.locator(addItemButton).click();
-        page.locator(searchSubmenuTextfield).fill("Item");
+        page.waitForSelector(searchSubmenuTextfield).fill("Item");
         Locator listEle = page.locator(selectSubmenuListItem);
         listEle.nth(1).click();
         Date date = new java.util.Date();
         String d = new SimpleDateFormat("yyyyMMddHHmmss").format(date);
-        itemName = iname+d;
-        page.locator(newItemName).fill(itemName);
+        itemName = iName+d;
+        page.waitForSelector(newItemName).fill(itemName);
         page.locator(submenuAddButton).click();
         return page.waitForSelector("xpath=//*[@id='objNavTree']//div[@title='"+itemName+"']").isVisible();
     }
@@ -92,7 +92,7 @@ public class FoldersPage {
         return page.waitForSelector("xpath=//div[@title='"+itemID+"-"+itemName+"']").isVisible();
     }
 
-    public boolean attachDocument(String fName) throws InterruptedException {
+    public boolean attachDocument(String fName) {
         page.locator(attachmentTab).click();
         page.locator(addAttachment).click();
         File file = new File("src/test/resources/"+fName);
